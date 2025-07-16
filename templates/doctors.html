@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctors</title>
+</head>
+<body>
+    <h2>Doctors</h2>
+    <form action="/add_doctor" method="POST">
+        Name: <input name="name" required><br>
+        Specialization: <input name="specialization" required><br>
+        Contact: <input name="contact" required><br>
+        <button type="submit">Add Doctor</button>
+    </form>
+    <h3>Existing Doctors:</h3>
+    <ul>
+        {% for d in doctors %}
+            <li>{{ d.doctor_id }} - {{ d.name }} ({{ d.specialization }}) - {{ d.contact }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+ 

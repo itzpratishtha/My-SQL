@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patients</title>
+</head>
+<body>
+    <h2>Patients</h2>
+    <form action="/add_patient" method="POST">
+        Name: <input name="name" required><br>
+        Age: <input name="age" type="number" required><br>
+        Gender: <input name="gender" required><br>
+        Contact: <input name="contact" required><br>
+        Address: <input name="address" required><br>
+        <button type="submit">Add Patient</button>
+    </form>
+    <h3>Existing Patients:</h3>
+    <ul>
+        {% for p in patients %}
+            <li>{{ p.patient_id }} - {{ p.name }} ({{ p.age }}, {{ p.gender }}) - {{ p.contact }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

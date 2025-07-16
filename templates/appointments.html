@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointments</title>
+</head>
+<body>
+    <h2>Appointments</h2>
+    <form action="/add_appointment" method="POST">
+        Patient:
+        <select name="patient_id">
+            {% for p in patients %}
+            <option value="{{ p.patient_id }}">{{ p.name }}</option>
+            {% endfor %}
+        </select><br>
+        Doctor:
+        <select name="doctor_id">
+            {% for d in doctors %}
+            <option value="{{ d.doctor_id }}">{{ d.name }}</option>
+            {% endfor %}
+        </select><br>
+        Date: <input type="date" name="date" required><br>
+        <button type="submit">Schedule Appointment</button>
+    </form>
+    <h3>All Appointments:</h3>
+    <ul>
+        {% for a in appointments %}
+            <li>{{ a.appointment_id }} - {{ a.patient }} with {{ a.doctor }} on {{ a.appointment_date }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

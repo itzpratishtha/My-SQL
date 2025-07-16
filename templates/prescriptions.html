@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prescriptions</title>
+</head>
+<body>
+    <h2>Prescriptions</h2>
+    <form action="/add_prescription" method="POST">
+        Appointment:
+        <select name="appointment_id">
+            {% for a in appointments %}
+            <option value="{{ a.appointment_id }}">{{ a.appointment_id }}</option>
+            {% endfor %}
+        </select><br>
+        Medicine: <input name="medicine" required><br>
+        Notes: <input name="notes"><br>
+        <button type="submit">Add Prescription</button>
+    </form>
+    <h3>Existing Prescriptions:</h3>
+    <ul>
+        {% for p in prescriptions %}
+            <li>{{ p.prescription_id }} - {{ p.patient }} (Dr. {{ p.doctor }}) → {{ p.medicine }} | {{ p.notes }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
